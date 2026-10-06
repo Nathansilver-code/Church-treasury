@@ -1,0 +1,36 @@
+server:
+  address: 127.0.0.1   # only this computer can reach the backend
+  port: 8765
+
+spring:
+  application:
+    name: church-treasury
+
+treasury:
+  db:
+    # PostgreSQL connection. Change with environment variables, no code changes needed.
+    url: ${TREASURY_DB_URL:jdbc:postgresql://localhost:5432/treasury}
+    username: ${TREASURY_DB_USER:treasury}
+    password: ${TREASURY_DB_PASSWORD:penrodas}
+    # Optional: keep the tables in their own schema instead of "public" (used by the automated tests).
+    schema: ${TREASURY_DB_SCHEMA:}
+    # Tests only: delete and recreate the schema when the app starts.
+    fresh-schema: false
+
+# Swagger is OFF by default (installed app). Run with: --spring.profiles.active=dev
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html

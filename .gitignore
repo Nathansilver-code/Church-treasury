@@ -1,0 +1,19 @@
+# downloaded or built files that can be rebuilt
+node_modules/
+dist/
+target/
+
+# editor settings
+.classpath
+.project
+.settings/
+.idea/
+.vscode/
+*.iml
+
+# secrets and real data: never commit these
+.env
+*.log
+*.sql.gz
+*.dump
+backups/
