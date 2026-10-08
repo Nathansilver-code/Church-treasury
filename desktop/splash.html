@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'">
+<title>Church Treasury</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #ffffff; font-family: "Segoe UI", system-ui, sans-serif; color: #1f2937; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; border-top: 6px solid #00504c; box-sizing: border-box; }
+  body::before { content: ""; position: fixed; top: 6px; left: 0; right: 0; height: 1px; background: #c9a227; }
+  img { width: 128px; height: 128px; }
+  h1 { margin: 18px 0 4px; font-size: 22px; font-weight: 600; color: #00504c; }
+  #status { margin: 0; padding: 0 32px; max-width: 360px; text-align: center; font-size: 14px; line-height: 1.4; color: #6b7280; min-height: 40px; }
+  .bar { width: 220px; height: 4px; margin-top: 22px; background: #e5e7eb; border-radius: 2px; overflow: hidden; }
+  .bar i { display: block; width: 40%; height: 100%; background: #00504c; border-radius: 2px; animation: slide 1.3s ease-in-out infinite; }
+  @keyframes slide { 0% { margin-left: -40%; } 100% { margin-left: 100%; } }
+  @media (prefers-reduced-motion: reduce) { .bar i { animation: none; width: 100%; } }
+</style>
+</head>
+<body>
+  <img src="assets/logo.png" alt="">
+  <h1>Church Treasury</h1>
+  <p id="status" role="status">Starting...</p>
+  <div class="bar" aria-hidden="true"><i></i></div>
+</body>
+</html>

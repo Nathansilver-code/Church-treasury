@@ -17,3 +17,12 @@ target/
 *.sql.gz
 *.dump
 backups/
+
+cat >> .gitignore << 'EOF'
+
+# made while building the installer
+desktop/dist-installer/
+packaging/stage/
+packaging/downloads/
+backend/src/main/resources/static/
+EOF

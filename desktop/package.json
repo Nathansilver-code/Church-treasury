@@ -1,0 +1,42 @@
+{
+  "name": "church-treasury-desktop",
+  "productName": "Church Treasury",
+  "version": "0.1.0",
+  "description": "Church Treasury: receipts, reports and statements for the church treasurer",
+  "author": "Church Treasury",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test \"test/*.test.js\"",
+    "dist": "electron-builder --win --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "org.church.treasury",
+    "productName": "Church Treasury",
+    "directories": { "output": "dist-installer", "buildResources": "build" },
+    "files": ["main.js", "splash.html", "lib/**", "assets/**", "package.json"],
+    "extraResources": [
+      { "from": "../packaging/stage/backend", "to": "backend" },
+      { "from": "../packaging/stage/runtime", "to": "runtime" },
+      { "from": "../packaging/stage/postgres", "to": "postgres" }
+    ],
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Church Treasury",
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": true
+    }
+  }
+}
